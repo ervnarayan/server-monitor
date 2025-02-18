@@ -1,0 +1,23 @@
+{
+  "name": "server-monitor",
+  "version": "1.0.0",
+  "description": "server monitor module based on node js inbuilt modules.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ervnarayan/server-monitor.git"
+  },
+  "keywords": [
+    "server",
+    "monitor"
+  ],
+  "author": "Vivek Narayan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ervnarayan/server-monitor/issues"
+  },
+  "homepage": "https://github.com/ervnarayan/server-monitor#readme"
+}
