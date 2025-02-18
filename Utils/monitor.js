@@ -1,4 +1,5 @@
 import OS from 'node:os';
+import chalk from 'chalk';
 
 function monitor() {
     const oldCpus = OS.cpus();
@@ -11,10 +12,10 @@ function monitor() {
             }
         });
         console.clear();
-        console.log('CPU Usage:');
+        console.log(`${chalk.bgMagentaBright.bold('=========Server Sats=========')}`);
         console.table(usage);
-        console.log('Memory Used: ', usedMemory()) ;
-        console.log('CPU Running Time: ',cpuUPTime()) ;
+        console.log(`${chalk.bold('Memory Used: ')}`, usedMemory());
+        console.log(`${chalk.bold('CPU Running Time: ')}`,cpuUPTime());
     }, 1000);
  
 }
@@ -32,7 +33,9 @@ function usedMemory(){
     const totalMem = OS.totalmem();
     const freeMem = OS.freemem();
     const GB = 1024 * 1024 * 1024;
-    return ((totalMem - freeMem) / GB).toFixed(2) + ' GB / ' +  (totalMem / GB).toFixed(2) + 'GB';
+    const usedMemory = ((totalMem - freeMem) / GB).toFixed(2);
+
+    return usedMemory > 10 ? chalk.redBright(usedMemory + ' GB / ' + (totalMem / GB).toFixed(2) + 'GB') : chalk.greenBright(usedMemory + ' GB / ' + (totalMem / GB).toFixed(2) + 'GB');
 }
 
 function cpuUPTime(){
